@@ -1,0 +1,258 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Sample Web Form - ClickDimensions</title>
+
+<!-- Begin field validation script -->
+<script type="text/javascript">
+function validate_required(field,alerttxt)
+{
+with (field)
+  {
+  if (value==null||value=="")
+    {
+    alert(alerttxt);return false;
+    }
+  else
+    {
+    return true;
+    }
+  }
+}
+
+
+function validate_email(field,alerttxt)
+{
+with (field)
+  {
+  apos=value.indexOf("@");
+  dotpos=value.lastIndexOf(".");
+  if (apos<1||dotpos-apos<2)
+    {alert(alerttxt);return false;}
+  else {return true;}
+  }
+}
+
+function validate_form(frmWebCapture)
+{
+with (frmWebCapture)
+  {
+  if (validate_required(txtFirstName,"Please enter your first name")==false)
+  {txtFirstName.focus();return false;}
+  }
+  {
+  if (validate_required(txtLastName,"Please enter your last name")==false)
+  {txtLastName.focus();return false;}
+  }
+  {
+  if (validate_required(txtFormEmail,"Please enter your e-mail address")==false)
+  {txtFormEmail.focus();return false;}
+  }
+  {
+  if (validate_email(txtFormEmail,"Please enter a valid e-mail address")==false)
+    {txtFormEmail.focus();return false;}
+  }
+  {
+  if (validate_required(txtCompany,"Please enter the name of your company or organization")==false)
+  {txtCompany.focus();return false;}
+  }
+  {
+  if (validate_required(optCountry,"Please select a country")==false)
+  {optCountry.focus();return false;}
+  }
+}
+</script>
+<!-- End field validation script -->
+
+
+</head>
+
+<body>
+
+<p>Sample web form with JavaScript field validation.  Right click and select 'view source' to obtain the source code.</p>
+
+<form action="FormActionGoesHere" onsubmit="return validate_form(this)" method="post" name="frmWebCapture"
+
+    id="frmWebCapture"> 
+    <table> 
+        <tbody> 
+            <tr> 
+                <td align="middle" colspan="2"> 
+                </td> 
+            </tr> 
+            <tr> 
+                <td width="24%" style="width: 20%"> 
+                    *First name:
+                </td> 
+                <td> 
+                    <input id="txtFirstName" size="30" name="txtFirstName" />
+                </td> 
+                <td width="9%"> 
+                </td> 
+            </tr> 
+            <tr> 
+                <td style="width: 20%"> 
+                    *Last name: 
+                </td> 
+                <td> 
+                    <input id="txtLastName" size="30" name="txtLastName" /> 
+                </td> 
+            </tr> 
+            <tr> 
+                <td style="width: 20%"> 
+                    *Email: 
+                </td> 
+                <td> 
+                    <input id="txtFormEmail" size="30" name="txtFormEmail" /> 
+                </td> 
+            </tr> 
+            <tr> 
+                <td style="width: 20%"> 
+                    *Company:
+                </td> 
+                <td> 
+                    <input id="txtCompany" size="30" name="txtCompany" /> 
+                </td> 
+            </tr> 
+            <tr> 
+                <td style="width: 20%"> 
+                    City: 
+                </td> 
+                <td> 
+                    <input id="txtCity" size="30" name="txtCity" /> 
+                </td> 
+            </tr> 
+            <tr> 
+                <td style="width: 20%">*Country:</td> 
+                <td> 
+                        <select id="optCountry" name="optCountry" style="width: 50"> 
+                            <option selected="selected"></option> 
+                            <option value="Argentina">Argentina</option> 
+                            <option value="Australia">Australia</option> 
+                            <option value="Austria">Austria</option> 
+                            <option value="Bahrain">Bahrain</option> 
+                            <option value="Bangladesh">Bangladesh</option> 
+                            <option value="Belgium &amp; Luxembourg">Belgium &amp; Luxembourg</option> 
+                            <option value="Bhutan">Bhutan</option> 
+                            <option value="Bosnia &amp; Herzegovina">Bosnia &amp; Herzegovina</option> 
+                            <option value="Brasil">Brasil</option> 
+                            <option value="Brunei">Brunei</option> 
+                            <option value="Bulgaria">Bulgaria</option> 
+                            <option value="Cambodia">Cambodia</option> 
+                            <option value="Canada">Canada</option> 
+                            <option value="Chile">Chile</option> 
+                            <option value="China">China</option> 
+                            <option value="Colombia">Colombia</option> 
+                            <option value="Costa Rica">Costa Rica</option> 
+                            <option value="Croatia">Croatia</option> 
+                            <option value="Czech Republic">Czech Republic</option> 
+                            <option value="Denmark">Denmark</option> 
+                            <option value="Ecuador">Ecuador</option> 
+                            <option value="Egypt">Egypt</option> 
+                            <option value="Estonia">Estonia</option> 
+                            <option value="Finland">Finland</option> 
+                            <option value="France">France</option> 
+                            <option value="Germany">Germany</option> 
+                            <option value="Greece">Greece</option> 
+                            <option value="Hong Kong">Hong Kong</option> 
+                            <option value="Hungary">Hungary</option> 
+                            <option value="India">India</option> 
+                            <option value="Indonesia">Indonesia</option> 
+                            <option value="Ireland">Ireland</option> 
+                            <option value="Iran">Iran</option> 
+                            <option value="Iraq">Iraq</option> 
+                            <option value="Israel">Israel</option> 
+                            <option value="Italy">Italy</option> 
+                            <option value="Japan">Japan</option> 
+                            <option value="Jordan">Jordan</option> 
+                            <option value="Korea">Korea</option> 
+                            <option value="Kuwait">Kuwait</option> 
+                            <option value="Laos">Laos</option> 
+                            <option value="Latvia">Latvia</option> 
+                            <option value="Lebanon">Lebanon</option> 
+                            <option value="Lithuania">Lithuania</option> 
+                            <option value="Malaysia">Malaysia</option> 
+                            <option value="Maldives">Maldives</option> 
+                            <option value="Mexico">Mexico</option> 
+                            <option value="Nepal">Nepal</option> 
+                            <option value="Netherlands">Netherlands</option> 
+                            <option value="New Zealand">New Zealand</option> 
+                            <option value="Norway">Norway</option> 
+                            <option value="Oman">Oman</option> 
+                            <option value="Pakistan">Pakistan</option> 
+                            <option value="Peru">Peru</option> 
+                            <option value="Philippines">Philippines</option> 
+                            <option value="Poland">Poland</option> 
+                            <option value="Portugal">Portugal</option> 
+                            <option value="Puerto Rico">Puerto Rico</option> 
+                            <option value="Qatar">Qatar</option> 
+                            <option value="Romania">Romania</option> 
+                            <option value="Russia">Russia</option> 
+                            <option value="Saudi Arabia">Saudi Arabia</option> 
+                            <option value="Serbia &amp; Montenegro">Serbia &amp; Montenegro</option> 
+                            <option value="Singapore">Singapore</option> 
+                            <option value="Slovakia">Slovakia</option> 
+                            <option value="Slovenia">Slovenia</option> 
+                            <option value="South Africa">South Africa</option> 
+                            <option value="Spain">Spain</option> 
+                            <option value="Sri Lanka">Sri Lanka</option> 
+                            <option value="Sweden">Sweden</option> 
+                            <option value="Switzerland ">Switzerland</option> 
+                            <option value="Taiwan">Taiwan</option> 
+                            <option value="Thailand">Thailand</option> 
+                            <option value="Turkey">Turkey</option> 
+                            <option value="United Arab Emirates">United Arab Emirates</option> 
+                            <option value="UK">United Kingdom</option> 
+                            <option value="USA">United States of America</option> 
+                            <option value="Venezuela">Venezuela</option> 
+                            <option value="Yemen">Yemen</option> 
+                        </select> 
+                </td> 
+            </tr> 
+            <tr> 
+                <td style="width: 20%"> 
+                    Phone:
+                </td>
+                <td> 
+                    <input id="txtPhone" size="30" name="txtPhone" /> 
+                </td> 
+            </tr> 
+            <tr> 
+                <td style="width: 20%" colspan="2"> 
+                    Please tell us how can we help you
+                </td>
+                <td> 
+                </td> 
+            </tr> 
+            <tr> 
+                <td style="width: 20%"> 
+                </td>
+                <td> 
+                    <textarea id="txtComments" name="txtComments" rows="5" cols="30" ></textarea> 
+                </td> 
+            </tr>
+            <tr> 
+                <td style="width: 15%"> 
+                    <font class="subText">Sign-up to receive our monthly newsletter?</font> 
+                </td> 
+                <td style="width: 354px"> 
+                    <font class="subText"> 
+                        <input id="chkNewsletter" type="checkbox" name="chkNewsletter" checked="checked"/></font> 
+                </td> 
+            </tr> 
+            <tr> 
+                <td style="width: 20%"></td>
+				<td> 
+                    <input type="submit" value="Submit"/> 
+                </td> 
+            </tr> 
+        </tbody> 
+    </table> 
+    </form> 
+
+
+</body>
+
+</html>
