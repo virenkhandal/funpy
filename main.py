@@ -1,10 +1,11 @@
 import requests
 
 payload = {'txtFirstName': 'Viren', 'last_name': 'Khandal'}
+autho = ('user', 'pass')
 
-r = requests.post('https://clickdimensions.com/form/default.html', data=payload)
+r = requests.get('https://github.com/login', auth=autho)
 
-outfile = open('form.txt', 'wb')
-outfile.write(r.content)
+# outfile = open('form.txt', 'wb')
+# outfile.write(r.content)
 
-print(r.text)
+print(r.ok)
