@@ -4,10 +4,12 @@ from math import e
 sign = lambda x: math.copysign(1, x)
 
 def function(x):
-    return (e ** x) - (x ** 2) + (3 * x) - 2
+    return (x ** 2) - (4 * x) + 4 - (math.log(x))
 
 def method(a, b, error):
-    print("Question: Use the bisection method to find the root of " + "(e**x) - (x**2) + (3*x) - 2" + " on the interval [" + str(a) + ", " + str(b) + "] within " + str(error) + ".")
+    print("Question: Use the bisection method to find the root of " + "x^2 - 4x + 4 - ln(x)" + " on the interval [" + str(a) + ", " + str(b) + "] within " + str(error) + ".")
+    print("Value at a: ", function(a))
+    print("Value at b: ", function(b))
     if sign(function(a)) == sign(function(b)):
         print("There is no root in the given interval")
         return None
