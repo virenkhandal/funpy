@@ -1,6 +1,6 @@
 spotipy/private.py
 spotipy/__pycache__/private.cpython-36.pyc
 /.venv
-./__pycache__
+__pycache__/
 spotipy/__pycache__
-.venv
+.venv/
