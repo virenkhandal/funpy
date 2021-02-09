@@ -21,7 +21,6 @@ tracks = requests.get(tracks_endpoint, params=payload, auth=BearerAuth(oauth))
 artist_file = open('top_artists.txt', 'w')
 track_file = open('top_tracks.txt', 'w')
 
-
 print("Here are your top 5 artists for the past month: ")
 counter = 1
 for i in artists.json().get("items"):
