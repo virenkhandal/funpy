@@ -56,6 +56,12 @@ for i in response.json().get("games"):
         # print("White: " + i.get('white').get('result'))
         # print("Black: " + i.get('black').get('result'))
 
+def print_nice(dates):
+    for date_played, arr in dates.items():
+        print("Stats for {0}:".format(date_played))
+        print("Wins: {}".format(arr['W']))
+        print("Losses: {}".format(arr['L']))
+        print("Draws: {}".format(arr['D']))
+        print()
 
-
-print(dates)
+print_nice(dates)
