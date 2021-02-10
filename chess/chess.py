@@ -56,6 +56,4 @@ for i in response.json().get("games"):
         # print("White: " + i.get('white').get('result'))
         # print("Black: " + i.get('black').get('result'))
 
-
-
 print(dates)
