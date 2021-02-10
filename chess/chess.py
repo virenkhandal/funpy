@@ -4,28 +4,35 @@ from pytz import timezone
 import pytz
 from dateutil import parser
 
-currentMonth = datetime.now().month
 currentYear = datetime.now().year
-currentMonth = str(currentMonth).zfill(2)
-my_timezone=timezone('US/Pacific')
-date_format='%m/%d/%Y %H:%M:%S %Z'
+currentMonth = str(datetime.now().month).zfill(2)
+date_format='%m/%d/%Y'
 
 
 endpoint = "https://api.chess.com/pub/player/"
 username = input("Enter your username: ")
-payload = {"username": "viren2004"}
-games = requests.get(endpoint + username + "/games/" + str(currentYear) + "/" + str(currentMonth))
+response = requests.get(endpoint + username + "/games/" + str(currentYear) + "/" + str(currentMonth))
+
+dates = {}
 
 
-for i in games.json().get("games"):
+for i in response.json().get("games"):
     game = i.get("pgn")
     if game is not None:
+
+        #date stuff
         date = game.splitlines()[2][7:17]
         time = game.splitlines()[12][10:18]
+        date = date.replace('.', '/')
         date_time_str = date + " " + time + " UTC"
+        utc_timestamp = parser.parse(date_time_str)
+        pacific = utc_timestamp.astimezone(timezone('US/Pacific'))
+        date_played = pacific.strftime(date_format)
+        if not date_played in dates:
+            dates[date_played] = {'W': 0, 'L': 0, 'D': 0, 'times-white': 0, 'times-black': 0}
         
-        utc_date = parser.parse(date_time_str)
+        #daily record
+        
 
-        date = utc_date.astimezone(timezone('US/Pacific'))
-        print("Local date & time is: " + date.strftime(date_format))
-        
+
+print(dates)
