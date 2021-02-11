@@ -89,7 +89,7 @@ def print_nice(dates):
         print("Wins: {}".format(arr['W']))
         print("Losses: {}".format(arr['L']))
         print("Draws: {}".format(arr['D']))
-        print()
+        print("======")
 
 print()
 title = requests.get(endpoint + username).json().get("title")
