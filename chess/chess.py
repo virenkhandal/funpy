@@ -17,7 +17,7 @@ response = requests.get(endpoint + username + "/games/" + str(currentYear) + "/"
 dates = {}
 win = ['win']
 loss = ['checkmated', 'timeout', 'resigned', 'threecheck']
-draw = ['stalemate', 'timevsinsufficient', 'insufficient', 'repetition']
+draw = ['stalemate', 'timevsinsufficient', 'insufficient', 'repetition', 'agreed']
 
 for i in response.json().get("games"):
     game = i.get("pgn")
