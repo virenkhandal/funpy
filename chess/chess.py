@@ -91,4 +91,24 @@ def print_nice(dates):
         print("Draws: {}".format(arr['D']))
         print()
 
+print()
+title = requests.get(endpoint + username).json().get("title")
+if not title:
+    title = "player"
+print("Wins/Losses/Draws for {} {}".format(title, username))
+rating_response = requests.get(endpoint + username + "/stats").json()
+bullet_rating = rating_response.get("chess_bullet")
+if bullet_rating:
+    bullet_rating = bullet_rating.get("last").get("rating")
+    print("Bullet rating (1 min): {}".format(bullet_rating))
+blitz_rating = rating_response.get("chess_blitz")
+if blitz_rating:
+    blitz_rating = blitz_rating.get("last").get("rating")
+    print("Blitz rating (3-5 min): {}".format(blitz_rating))
+rapid_rating = rating_response.get("chess_rapid")
+if rapid_rating:
+    rapid_rating = rapid_rating.get("last").get("rating")
+    print("Rapid rating (10 min+): {}".format(rapid_rating))
+
+print()
 print_nice(dates)
