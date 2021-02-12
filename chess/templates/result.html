@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>chessm8</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../static/results.css">
+    <style>
+      .container {
+        max-width: 1000px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="go_again">
+        <form role="form" method='POST' action='/'>
+            <div class="form-group">
+              <input type="text" name="player" class="form-control" id="player-box" placeholder="Enter another username to look up on chess.com" style="max-width: 450px;" autofocus required>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+    </div>
+    <div class="container">
+      <h1>Chessm8 results</h1>
+      <h2>Statistics for {{title}} {{player}}</h2>
+      {% for rating in ratings_arr %}
+        <h3>{{rating}}</h3>
+      {% endfor %}
+      <br>
+      <h2>Game results for this month</h2>
+      {% for game in winstats %}
+        <h3>{{game}}</h3>
+      {% endfor %}
+    </div>
+    <script src="//code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  </body>
+</html>

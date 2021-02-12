@@ -7,7 +7,7 @@ top_tracks = []
 
 artists_endpoint = 'https://api.spotify.com/v1/me/top/artists'
 tracks_endpoint = 'https://api.spotify.com/v1/me/top/tracks'
-payload = {'time_range': 'short_term', 'limit': 5} 
+payload = {'time_range': 'short_term', 'limit': 10} 
 
 class BearerAuth(requests.auth.AuthBase):
     def __init__(self, token):
@@ -21,7 +21,7 @@ tracks = requests.get(tracks_endpoint, params=payload, auth=BearerAuth(oauth))
 artist_file = open('top_artists.txt', 'w')
 track_file = open('top_tracks.txt', 'w')
 
-print("Here are your top 5 artists for the past month: ")
+print("Here are your top " + str(payload.get('limit')) + " artists for the past month: ")
 counter = 1
 for i in artists.json().get("items"):
     string = str(counter) + ". " + i.get("name")
@@ -33,7 +33,7 @@ for i in artists.json().get("items"):
 print("\n")
 
 counter = 1
-print("Here are your top 5 tracks for the past month: ")
+print("Here are your top " + str(payload.get('limit')) + " tracks for the past month: ")
 for j in tracks.json().get("items"):
     string = str(counter) + ". " + j.get("name")
     print(string)
