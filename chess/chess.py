@@ -1,7 +1,6 @@
 from datetime import datetime
 import requests
 from pytz import timezone
-import pytz
 import dateutil
 from dateutil import parser
 
@@ -24,7 +23,11 @@ def get_win_stats(username):
     currentMonth = str(datetime.now().month).zfill(2)
     date_format='%m/%d/%Y'
     response = requests.get(endpoint + username + "/games/" + str(currentYear) + "/" + str(currentMonth))
-    for i in response.json().get("games"):
+    games = response.json().get("games")
+    games = games[::-1]
+    # print(games)
+    # games = games.reverse()
+    for i in games:
         game = i.get("pgn")
         if game:
             #date stuff
