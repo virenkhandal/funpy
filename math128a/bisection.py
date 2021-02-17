@@ -4,10 +4,10 @@ from math import e
 sign = lambda x: math.copysign(1, x)
 
 def function(x):
-    return (x ** 2) - (4 * x) + 4 - (math.log(x))
+    return (600 * (x ** 4)) - (550 * (x ** 3)) + (200 * (x ** 2)) - (20 * x) - 1
 
 def method(a, b, error):
-    print("Question: Use the bisection method to find the root of " + "x^2 - 4x + 4 - ln(x)" + " on the interval [" + str(a) + ", " + str(b) + "] within " + str(error) + ".")
+    print("Question: Use the bisection method to find the root on the interval [" + str(a) + ", " + str(b) + "] within " + str(error) + ".")
     print("Value at a: ", function(a))
     print("Value at b: ", function(b))
     if sign(function(a)) == sign(function(b)):
@@ -29,7 +29,7 @@ def method(a, b, error):
         print("With this, our root is at " + str(p) + " with a value of " + str(curr) + ".")
 
 if __name__ == '__main__':
-    lower_bound = int(input("Enter your lower bound: "))
-    upper_bound = int(input("Enter your upper bound: "))
+    lower_bound = float(input("Enter your lower bound: "))
+    upper_bound = float(input("Enter your upper bound: "))
     error = float(input("Enter your error value: "))
     method(lower_bound, upper_bound, error)

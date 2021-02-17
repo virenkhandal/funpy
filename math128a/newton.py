@@ -3,11 +3,11 @@ from math import e, cos, sin
 
 
 def derivative(x):
-    return (6 * (math.e ** (6 * x))) + (2.882 * (math.e ** (2 * x))) - (8.316 * (math.e ** (4 * x)))
+    return (2400 * (x ** 3)) - (1650 * (x ** 2)) + (400 * x) - 20
 
 
 def function(x):
-    return  (math.e ** (6 * x)) + (1.441 * (math.e ** (2 * x))) - (2.079 * (math.e ** (4 * x))) - (0.3330)
+    return  (600 * (x ** 4)) - (550 * (x ** 3)) + (200 * (x ** 2)) - (20 * x) - 1
 
 def method(p0, TOL, n):
     print("Question: Use the newton method to find the root" + " with initial approximation " + str(p0) + " with tolerance " + str(TOL) + ".")
