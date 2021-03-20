@@ -20,6 +20,11 @@ def cluster(csv, num_clusters, etc=None):
     # df['Critical Thinking'] = df[' [Critical Thinking]'].astype(str).str[0]
 
     newdf = df[['Problem Solving', 'Creativity', 'Research', 'Time Management', 'Communication']]
+    newdf['Problem Solving'].replace("n", value="0", inplace=True)
+    newdf['Creativity'].replace("n", value="0", inplace=True) 
+    newdf['Research'].replace("n", value="0", inplace=True) 
+    newdf['Time Management'].replace("n", value="0", inplace=True) 
+    newdf['Communication'].replace("n", value="0", inplace=True) 
     # print(newdf)
 
 
@@ -38,7 +43,7 @@ def cluster(csv, num_clusters, etc=None):
     cluster_assignments = clustering.labels_
 
     # Unscaling the categories then replacing the scaled values
-    if csv == "fakeStudent.csv":
+    if 'Best email to reach you' in df.columns:
         df = df[['Best email to reach you']].join(pd.DataFrame(scaler.inverse_transform(newdf), columns=newdf.columns[:], index=newdf.index))
     else:
         df = df[['Company Name']].join(pd.DataFrame(scaler.inverse_transform(newdf), columns=newdf.columns[:], index=newdf.index))
