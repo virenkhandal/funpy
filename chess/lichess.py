@@ -1,4 +1,5 @@
 from datetime import datetime
+import matplotlib.pyplot as plt, mpld3
 import ndjson
 import requests
 
@@ -11,8 +12,7 @@ def test_username(username):
     else:
         return True
 
-def get_win_stats(username):
-    dates = {}
+def get_request_data(username):
     currentYear = str(datetime.now().year)
     currentMonth = str(datetime.now().month).zfill(2)
     currentMonthTime = int(datetime.strptime("01 " + currentMonth + " " + currentYear + " 00:00", "%d %m %Y %H:%M").timestamp())
@@ -20,6 +20,10 @@ def get_win_stats(username):
     params = {'since' : str(currentMonthTime*1000)}
     response = requests.get(endpoint + "games/user/" + username, headers=headers, params=params)
     data = response.json(cls=ndjson.Decoder)
+    return data
+
+def get_win_stats(data, username):
+    dates = {}
     date_fmt = "%m/%d/%Y"
     for game in data:
         date = datetime.fromtimestamp(game.get('createdAt')//1000)
@@ -52,12 +56,13 @@ def get_win_stats(username):
 def ret_nice(dates):
     ret = []
     for date_played, arr in dates.items():
-        ret.append("Stats for {0}:".format(date_played))
-        ret.append("Total games played: {}".format(arr['total']))
-        ret.append("Wins: {}".format(arr['W']))
-        ret.append("Losses: {}".format(arr['L']))
-        ret.append("Draws: {}".format(arr['D']))
-        ret.append("======")
+        ret.append(
+            ("Stats for {0}:".format(date_played),
+            "Total games played: {}".format(arr['total']),
+            "Wins: {}".format(arr['W']),
+            "Losses: {}".format(arr['L']),
+            "Draws: {}".format(arr['D']))
+        )
     return ret
 
 def get_title(username):
@@ -82,3 +87,33 @@ def get_ratings(username):
         rapid_rating = rapid_rating.get("rating")
         ret.append("Rapid rating (10 min+): {}".format(rapid_rating))
     return ret
+
+def get_ratings_chart(data, time_ctrl, username):
+    dates = {}
+    date_fmt = "%m/%d"
+    for game in data:
+        if game['speed'] == time_ctrl:
+            date = datetime.fromtimestamp(game.get('createdAt')//1000)
+            date_played = date.strftime(date_fmt)
+            white = game.get('players').get('white')
+            black = game.get('players').get('black')
+            if white.get('user').get('name') == username:
+                dates[date_played] = white.get('rating')
+            else:
+                dates[date_played] = black.get('rating')
+    return dates
+
+
+def chartify(data, time_ctrl):
+    x = data.keys()
+    y = data.values()
+    fig = plt.figure()
+    plt.plot(x, y)
+    plt.title(time_ctrl)
+    plt.xlabel('Date')
+    plt.ylabel('Rating')
+    chart = mpld3.fig_to_html(fig)
+    return chart
+
+if __name__ == "__main__":
+    print(chartify(get_ratings_chart(get_request_data('rebeccaharris'), 'blitz', 'rebeccaharris')))

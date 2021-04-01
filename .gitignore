@@ -4,3 +4,5 @@ spotipy/__pycache__/private.cpython-36.pyc
 __pycache__/
 spotipy/__pycache__
 .venv/
+.venv
+.vscode

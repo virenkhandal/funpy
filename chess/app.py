@@ -17,23 +17,28 @@ def chessdotcom():
             win_stats = chess.ret_nice(chess.get_win_stats(player))
             ratings = chess.get_ratings(player)
             title = chess.get_title(player)
-            bullet_chart = chess.chartify(chess.get_ratings_chart(player, 'bullet'))
-            blitz_chart = chess.chartify(chess.get_ratings_chart(player, 'blitz'))
-            rapid_chart = chess.chartify(chess.get_ratings_chart(player, 'rapid'))
+            bullet_chart = chess.chartify(chess.get_ratings_chart(player, 'bullet'), 'bullet')
+            blitz_chart = chess.chartify(chess.get_ratings_chart(player, 'blitz'), 'blitz')
+            rapid_chart = chess.chartify(chess.get_ratings_chart(player, 'rapid'), 'rapid')
             charts = [bullet_chart, blitz_chart, rapid_chart]
             return render_template('result.html', player=player, title=title, ratings_arr=ratings, winstats=win_stats, charts=charts)
         else:
             return render_template('error.html')
 
 @app.route('/lichess', methods=['GET','POST'])
-def lichess():
+def lichessdotorg():
     if request.method == "POST":
         player = request.form['player']
         if lichess.test_username(player):
-            win_stats = lichess.ret_nice(lichess.get_win_stats(player))
+            data = lichess.get_request_data(player)
+            win_stats = lichess.ret_nice(lichess.get_win_stats(data, player))
             ratings = lichess.get_ratings(player)
             title = lichess.get_title(player)
-            return render_template('result.html', player=player, title=title, ratings_arr=ratings, winstats=win_stats)
+            bullet_chart = lichess.chartify(lichess.get_ratings_chart(data, 'bullet', player), 'bullet')
+            blitz_chart = lichess.chartify(lichess.get_ratings_chart(data, 'blitz', player), 'blitz')
+            rapid_chart = lichess.chartify(lichess.get_ratings_chart(data, 'rapid', player), 'rapid')
+            charts = [bullet_chart, blitz_chart, rapid_chart]
+            return render_template('result.html', player=player, title=title, ratings_arr=ratings, winstats=win_stats, charts=charts)
         else:
             return render_template('error.html')
 

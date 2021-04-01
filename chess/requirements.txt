@@ -1,4 +1,7 @@
 flask
+gunicorn
+matplotlib
+mpld3
 ndjson
 pytz
 python-dateutil

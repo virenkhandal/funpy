@@ -91,7 +91,7 @@ def ret_nice(dates):
     for date_played, arr in dates.items():
         ret.append(
             ("Stats for {0}:".format(date_played), 
-            "Total games played: {}".format(arr['total']), 
+            "Played: {}".format(arr['total']), 
             "Wins: {}".format(arr['W']), 
             "Losses: {}".format(arr['L']), 
             "Draws: {}".format(arr['D']))
@@ -182,13 +182,12 @@ def get_ratings_chart(username, time_control):
     print(time_control, dates, '\n')
     return dates
 
-def chartify(data):
+def chartify(data, time_ctrl):
     x = data.keys()
     y = data.values()
-    fig, ax = plt.subplots()
-    ax.xaxis_date()
-
-    ax.plot_date(x, y)
+    fig = plt.figure()
+    plt.plot(x, y)
+    plt.title(time_ctrl)
     plt.xlabel('Date')
     plt.ylabel('Rating')
     chart = mpld3.fig_to_html(fig)
@@ -196,4 +195,5 @@ def chartify(data):
 
 if __name__ == "__main__":
     blitz = get_ratings_chart('boejohn', 'blitz')
-    chartify(blitz)
+    print(blitz)
+#    chartify(blitz)
