@@ -3,6 +3,13 @@ spotipy/__pycache__/private.cpython-36.pyc
 /.venv
 __pycache__/
 spotipy/__pycache__
-.venv/
 .venv
 .vscode
+interview/node_modules
+chess/__pycache__
+nlp/__pycache__
+node/node_modules
+plex/__pycache__
+plex/.venv
+plex/.vscode
+plex/.ipynb_checkpoints
