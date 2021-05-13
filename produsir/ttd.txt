@@ -1,0 +1,5 @@
+# First Steps
+- get user to record them singing
+    - use cadence + pauses + rhythm
+- speech to text of words sung by user
+    - associate words with certain types of beats + music
