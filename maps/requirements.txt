@@ -9,7 +9,9 @@ Brotli==1.0.9
 chardet==4.0.0
 click==7.1.2
 dash==1.19.0
+dash-bootstrap-components==0.12.0
 dash-core-components==1.15.0
+dash-extensions==0.0.23
 dash-html-components==1.1.2
 dash-renderer==1.9.0
 dash-table==4.11.2
@@ -24,6 +26,7 @@ itsdangerous==1.1.0
 Jinja2==2.11.3
 jmespath==0.10.0
 MarkupSafe==1.1.1
+more-itertools==8.7.0
 multidict==5.1.0
 numpy==1.20.2
 pandas==1.2.3
