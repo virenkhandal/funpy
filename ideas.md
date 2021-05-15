@@ -9,3 +9,8 @@
 ### Machine Learning/NLP
 
 ### Crypto/NFT
+
+### A Year in Code
+* Video showing projects + ideas
+    * Amalgamation of all projects, thoughts, ideas
+    * Tributes/dedications
