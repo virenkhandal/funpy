@@ -1,0 +1,3 @@
+# Next Things
+- Develop endpoint to see others' top songs
+    - Use OAuth/Bearer
