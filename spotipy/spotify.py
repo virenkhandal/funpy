@@ -35,6 +35,10 @@ def getTracks():
         top_tracks.append(track)
     return top_tracks
 
+if __name__ == "__main__":
+    print(getArtists())
+    print(getTracks())
+
 # artist_file = open('top_artists.txt', 'w')
 # track_file = open('top_tracks.txt', 'w')
 
