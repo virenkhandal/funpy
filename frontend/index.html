@@ -4,42 +4,63 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Front End</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+
 </head>
+<script>
+    function setSize(){
+        var $h = $('img').width();
+        $('img').height($h);
+    }
+    $(setSize);
+    $( window ).resize(setSize); 
+</script>
 <body>
     <div class="grid">
         <div class="row">
             <div class="col">
-                <img src="baby.jpeg">
+                <img id="image_one" src="baby.jpeg">
+                <h1> Lil Baby </h1>
             </div>
             <div class="col">
-                <img src="coi.jpeg">
+                <img id="image_two" src="coi.jpeg">
+                <h1> Coi Leray </h1>
             </div>
             <div class="col">
-                <img src="cole.jpeg">
+                <img id="image_three" src="cole.jpeg">
+                <h1> J Cole </h1>
             </div>
             <div class="col">
-                <img src="cudi.jpeg">
+                <img id="image_four" src="cudi.jpeg">
+                <h1> Kid Cudi </h1>
             </div>
             <div class="col">
-                <img src="dugg.jpeg">
+                <img id="image_five" src="dugg.jpeg">
+                <h1> 42 Dugg </h1>
             </div>
         </div>
         <div class="row">
             <div class="col">
                 <img src="jon.jpeg">
+                <h1> Jon Bellion</h1>
             </div>
             <div class="col">
                 <img src="lana.jpeg">
+                <h1> Lana Del Rey </h1>
             </div>
             <div class="col">
                 <img src="mgk.jpeg">
+                <h1> Machine Gun Kelly </h1>
             </div>
             <div class="col">
                 <img src="sean.jpeg">
+                <h1> Big Sean </h1>
             </div>
             <div class="col">
                 <img src="ysf.jpeg">
+                <h1> Young Stoner Life </h1>
             </div>
         </div>
     </div>
