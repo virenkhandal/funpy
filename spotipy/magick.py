@@ -22,15 +22,16 @@ def writetext():
     track_five = "Migos"
 
     test = "K"
-    split = artist_three.split(" ")
+    # split = artist_three.split(" ")
 
-    for i in range(len(split) + 1):
-        size = font.getsize(' '.join(split[:i]) + " ...")
-        if size[0] > 350:
-            artist_breakpoint = i
-            break
-    artist_three = ' '.join(split[:artist_breakpoint]) + " ..."
+    # for i in range(len(split) + 1):
+    #     size = font.getsize(' '.join(split[:i]) + " ...")
+    #     if size[0] > 350:
+    #         artist_breakpoint = i
+    #         break
+    # artist_three = ' '.join(split[:artist_breakpoint]) + " ..."
 
+    artist_three = concat(artist_three)
     # draw.text((500, 1455), test, font=font, fill="black", align="left")
     # Drawing text on image
     draw.text((650, 200), time, fill="black", font=font, align="left")
@@ -51,6 +52,17 @@ def writetext():
 
     # Display image
     image.show()
+
+def concat(text):
+    split = text.split(" ")
+
+    for i in range(len(split) + 1):
+        size = font.getsize(' '.join(split[:i]) + " ...")
+        if size[0] > 350:
+            artist_breakpoint = i
+            break
+    text = ' '.join(split[:artist_breakpoint]) + " ..."
+    return text
 
 if __name__ == "__main__":
     writetext()
