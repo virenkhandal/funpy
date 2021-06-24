@@ -15,7 +15,7 @@ def writetext():
     artist_four = "Sad Alex"
     artist_five = "Migos"
 
-    track_one = "Vibes (feat...)"
+    track_one = "Vibes (feat. Tyla Yaweh)"
     track_two = "Lana Del Rey"
     track_three = "Machine Gu..."
     track_four = "Sad Alex"
@@ -23,7 +23,7 @@ def writetext():
 
 
     artist_three = concat(artist_three, font)
-
+    track_one = concat(track_one, font)
     # Drawing text on image
     draw.text((650, 200), time, fill="black", font=font, align="left")
 
@@ -49,7 +49,7 @@ def concat(text, font):
 
     for i in range(len(split) + 1):
         size = font.getsize(' '.join(split[:i]) + " ...")
-        if size[0] > 350:
+        if size[0] > 300:
             artist_breakpoint = i
             break
     text = ' '.join(split[:artist_breakpoint]) + " ..."
