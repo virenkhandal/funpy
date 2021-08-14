@@ -10,9 +10,12 @@ def permute(scramble):
     possible_words = []
     for i in scramble:
         letters.append(i)
-    permutations = itertools.permutations(letters)
-    for j in permutations:
-        possible_words.append(''.join(map(str, j)))
+    for k in range(3,len(letters)):
+        subset = letters[k:]
+        permutations = itertools.permutations(subset)
+        print(permutations)
+        for j in permutations:
+            possible_words.append(''.join(map(str, j)))
     print("found all possible words... defining ...")
     return possible_words
 
