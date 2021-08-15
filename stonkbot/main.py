@@ -1,6 +1,5 @@
 from PyDictionary import PyDictionary
 import itertools
-from termcolor import colored
 from tqdm import tqdm
 
 dictionary=PyDictionary()
