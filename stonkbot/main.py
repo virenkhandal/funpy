@@ -28,9 +28,9 @@ def define(permuatations):
 def pretty_print(words):
     print("\n")
     for word in words:
-        # print(colored(word, "grey", "on_green"))
-        print(word)
-        print("\n")
+        pass
+        # print(word)
+        # print("\n")
 
 if __name__ == "__main__":
     scramble = input("Enter the letters from your puzzle: ")
