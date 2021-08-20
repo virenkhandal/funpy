@@ -1,4 +1,5 @@
 from PyDictionary import PyDictionary
+from tqdm import tqdm
 
 dictionary=PyDictionary()
 
