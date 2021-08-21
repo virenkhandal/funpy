@@ -1,7 +1,7 @@
 from PyDictionary import PyDictionary
 import itertools
 from tqdm import tqdm
-
+from define import *
 dictionary=PyDictionary()
 
 def permute(scramble):
@@ -18,12 +18,12 @@ def permute(scramble):
     print("found all possible words... defining ...")
     return possible_words
 
-def define(permuatations):
-    true_words = []
-    for i in tqdm(permuatations):
-        if dictionary.meaning(i, disable_errors=True) != None:
-            true_words.append(i)
-    return true_words
+# def define(permuatations):
+#     true_words = []
+#     for i in tqdm(permuatations):
+#         if dictionary.meaning(i, disable_errors=True) != None:
+#             true_words.append(i)
+#     return true_words
 
 def pretty_print(words):
     print("\n")
@@ -35,5 +35,5 @@ def pretty_print(words):
 if __name__ == "__main__":
     scramble = input("Enter the letters from your puzzle: ")
     permuatations = permute(scramble)
-    words = define(permuatations)
+    words = definition(permuatations)
     pretty_print(words)

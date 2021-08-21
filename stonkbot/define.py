@@ -3,7 +3,7 @@ from tqdm import tqdm
 
 dictionary=PyDictionary()
 
-def define(permuatations):
+def definition(permuatations):
     true_words = []
     for i in tqdm(permuatations):
         if dictionary.meaning(i, disable_errors=True) != None:
