@@ -2,6 +2,7 @@ from PyDictionary import PyDictionary
 import itertools
 from tqdm import tqdm
 from define import *
+from utils import *
 dictionary=PyDictionary()
 
 def permute(scramble):
@@ -25,12 +26,7 @@ def permute(scramble):
 #             true_words.append(i)
 #     return true_words
 
-def pretty_print(words):
-    print("\n")
-    for word in words:
-        pass
-        # print(word)
-        # print("\n")
+
 
 if __name__ == "__main__":
     scramble = input("Enter the letters from your puzzle: ")
