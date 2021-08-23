@@ -1,9 +1,6 @@
-from PyDictionary import PyDictionary
 import itertools
-from tqdm import tqdm
 from define import *
 from utils import *
-dictionary=PyDictionary()
 
 def permute(scramble):
     letters = []
@@ -18,14 +15,6 @@ def permute(scramble):
             possible_words.append(''.join(map(str, j)))
     print("found all possible words... defining ...")
     return possible_words
-
-# def define(permuatations):
-#     true_words = []
-#     for i in tqdm(permuatations):
-#         if dictionary.meaning(i, disable_errors=True) != None:
-#             true_words.append(i)
-#     return true_words
-
 
 
 if __name__ == "__main__":
