@@ -4,3 +4,6 @@ def pretty_print(words):
         pass
         # print(word)
         # print("\n")
+
+def memoize(words):
+    pass
